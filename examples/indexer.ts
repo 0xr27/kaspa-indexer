@@ -4,9 +4,6 @@ import type { Config, VCResult } from "../src/indexer/type";
 import type { ILogger } from "../src/logger/type";
 
 class MyIndexer extends Indexer {
-  handleTransactions(vcRes: VCResult): Promise<void> {
-    throw new Error("Method not implemented.");
-  }
   constructor(config: Config, logger: ILogger) {
     super({
       config, logger,
@@ -15,6 +12,9 @@ class MyIndexer extends Indexer {
     });
     this.config = config;
     this.logger = logger;
+  }
+  handleTransactions(vcRes: VCResult): Promise<void> {
+    throw new Error("Method not implemented.");
   }
 
   getId(): string {
